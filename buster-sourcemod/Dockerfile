@@ -3,10 +3,11 @@
 ###########################################################
 FROM cm2network/steamcmd:root
 
-LABEL maintainer="walentinlamonos@gmail.com"
+LABEL maintainer="gitmail@oct8l.email"
 
 ENV STEAMAPPID 740
 ENV STEAMAPPDIR /home/steam/csgo-dedicated
+ENV CSINSTDIR /csgo-install
 
 # Create autoupdate config
 # Add entry script & ESL config
@@ -18,18 +19,18 @@ RUN set -x \
 		ca-certificates=20190110 \
 	&& mkdir -p ${STEAMAPPDIR}/csgo \
 	&& cd ${STEAMAPPDIR} \
-	&& wget https://raw.githubusercontent.com/CM2Walki/CSGO/master/etc/entry.sh \
+	&& wget https://raw.githubusercontent.com/oct8l/CSGO-1/master/etc/entry.sh \
 	&& chmod 755 ${STEAMAPPDIR}/entry.sh \
 	&& cd ${STEAMAPPDIR}/csgo \
 	&& { \
 			echo '@ShutdownOnFailedCommand 1'; \
 			echo '@NoPromptForPassword 1'; \
 			echo 'login anonymous'; \
-			echo 'force_install_dir ${STEAMAPPDIR}'; \
+			echo 'force_install_dir ${CSINSTDIR}'; \
 			echo 'app_update ${STEAMAPPID}'; \
 			echo 'quit'; \
 		} > ${STEAMAPPDIR}/csgo_update.txt \
-	&& wget -qO- https://raw.githubusercontent.com/CM2Walki/CSGO/master/etc/cfg.tar.gz | tar xvzf - \
+	&& wget -qO- https://raw.githubusercontent.com/oct8l/CSGO-1/master/etc/cfg.tar.gz | tar xvzf - \
 	&& wget -qO- https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git971-linux.tar.gz | tar xvzf - \
 	&& wget -qO- https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6454-linux.tar.gz | tar xvzf - \
 	&& chown -R steam:steam ${STEAMAPPDIR} \
@@ -47,7 +48,7 @@ ENV SRCDS_FPSMAX=300 \
 	SRCDS_MAXPLAYERS=14 \
 	SRCDS_TOKEN=0 \
 	SRCDS_RCONPW="changeme" \
-	SRCDS_PW="changeme" \
+	SRCDS_PW="" \
 	SRCDS_STARTMAP="de_dust2" \
 	SRCDS_REGION=3 \
 	SRCDS_MAPGROUP="mg_active" \
