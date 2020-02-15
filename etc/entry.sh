@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp /home/steam/csgo-dedicated/csgo/ /csgo-install/
+cp -r /home/steam/csgo-dedicated/csgo/ /csgo-install/
 
 rm -rf /home/steam/csgo
 
