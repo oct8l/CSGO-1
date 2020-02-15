@@ -44,7 +44,7 @@ RUN set -x \
 	&& apt-get autoremove -y \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENV SRCDS_FPSMAX=300 \
+ENV SRCDS_FPSMAX=999 \
 	SRCDS_TICKRATE=128 \
 	SRCDS_PORT=27015 \
 	SRCDS_TV_PORT=27020 \
