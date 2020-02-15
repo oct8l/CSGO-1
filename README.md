@@ -10,6 +10,9 @@ This Docker image contains the dedicated server of the game.
 <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/CS-GO_Logo.svg/1920px-CS-GO_Logo.svg.png" alt="logo" width="300"/></img>
 
 # How to use this image
+## Mapping a volume
+This container is able to make use of an external volume mapped at `csgo-install` so multiple servers can use the same files and not need a ~20GB download for each. Make sure to include the `-v` flag when starting the servers, and specify where the game files should be installed (in case of the first container being run) or updated (subsequent containers or restarts of the original container).
+
 ## Hosting a simple game server
 
 Running on the *host* interface (recommended):<br/>
