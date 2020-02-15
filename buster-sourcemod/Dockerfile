@@ -17,6 +17,7 @@ RUN set -x \
 	&& apt-get install -y --no-install-recommends --no-install-suggests \
 		wget=1.20.1-1.1 \
 		ca-certificates=20190110 \
+		unzip \
 	&& mkdir -p ${STEAMAPPDIR}/csgo \
 	&& cd ${STEAMAPPDIR} \
 	&& wget https://raw.githubusercontent.com/oct8l/CSGO-1/master/etc/entry.sh \
@@ -30,12 +31,15 @@ RUN set -x \
 			echo 'app_update ${STEAMAPPID}'; \
 			echo 'quit'; \
 		} > ${STEAMAPPDIR}/csgo_update.txt \
-	&& wget -qO- https://raw.githubusercontent.com/oct8l/CSGO-1/master/etc/cfg.tar.gz | tar xvzf - \
 	&& wget -qO- https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git971-linux.tar.gz | tar xvzf - \
 	&& wget -qO- https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6454-linux.tar.gz | tar xvzf - \
+	&& wget https://github.com/splewis/csgo-pug-setup/releases/download/2.0.5/pugsetup_2.0.5.zip -O pugsetup.zip \
+		&& unzip pugsetup.zip \
+		&& rm pugsetup.zip \
 	&& chown -R steam:steam ${STEAMAPPDIR} \
 	&& apt-get remove --purge -y \
 		wget \
+		unzip \
 	&& apt-get clean autoclean \
 	&& apt-get autoremove -y \
 	&& rm -rf /var/lib/apt/lists/*
