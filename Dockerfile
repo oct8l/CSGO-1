@@ -1,7 +1,7 @@
 ###########################################################
 # Dockerfile that builds a CSGO Gameserver
 ###########################################################
-FROM cm2network/steamcmd:root
+FROM oct8l/steamcmdbase:latest
 
 LABEL maintainer="gitmail@oct8l.email"
 
