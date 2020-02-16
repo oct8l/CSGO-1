@@ -13,6 +13,13 @@ This Docker image contains the dedicated server of the game.
 ## Mapping a volume
 This container is able to make use of an external volume mapped at `csgo-install` so multiple servers can use the same files and not need a ~20GB download for each. Make sure to include the `-v` flag when starting the servers, and specify where the game files should be installed (in case of the first container being run) or updated (subsequent containers or restarts of the original container).
 
+To create a volume at /opt/csgo-install for example, run the following commands as your user you will use Docker as:
+
+```console
+sudo mkdir /opt/csgo-install
+sudo chown $USER:$USER /opt/csgo-install/
+```
+
 ## Hosting a simple game server
 
 Running on the *host* interface (recommended):<br/>
