@@ -1,9 +1,5 @@
 #!/bin/bash
 
-cp -r /home/steam/csgo-dedicated/csgo/ /csgo-install/
-
-rm -rf /home/steam/csgo
-
 ${STEAMCMDDIR}/steamcmd.sh +login anonymous +force_install_dir ${CSINSTDIR} +app_update ${STEAMAPPID} +quit
 
 ${CSINSTDIR}/srcds_run -game csgo -console -usercon +ip 0.0.0.0 -autoupdate -steam_dir ${STEAMCMDDIR} -steamcmd_script ${STEAMAPPDIR}/csgo_update.txt -usercon +fps_max $SRCDS_FPSMAX \
