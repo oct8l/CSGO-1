@@ -1,6 +1,3 @@
-# Supported tags and respective `Dockerfile` links
--	[`sourcemod` (*buster-sourcemod/Dockerfile*)](https://github.com/oct8l/CSGO-1/blob/master/buster-sourcemod/Dockerfile)
-
 # What is Counter-Strike: Global Offensive?
 Counter-Strike: Global Offensive (CS: GO) expands upon the team-based action gameplay that it pioneered when it was launched 19 years ago. CS: GO features new maps, characters, weapons, and game modes, and delivers updated versions of the classic CS content (de_dust2, etc.).
 This Docker image contains the dedicated server of the game.
@@ -44,14 +41,14 @@ SRCDS_RCONPW="changeme" (value can be overwritten by csgo/cfg/server.cfg)
 SRCDS_PW="changeme" (value can be overwritten by csgo/cfg/server.cfg)
 SRCDS_PORT=27015
 SRCDS_TV_PORT=27020
-SRCDS_FPSMAX=300
+SRCDS_FPSMAX=999
 SRCDS_TICKRATE=128
 SRCDS_MAXPLAYERS=14
 SRCDS_STARTMAP="de_dust2"
-SRCDS_REGION=3
+SRCDS_REGION=255
 SRCDS_MAPGROUP="mg_active"
 ```
 ## Config
-The image contains a copy of the official ESL config files from [here](https://play.eslgaming.com/download/26251762/). The files can be found in the following directory: */home/steam/csgo-dedicated/csgo/cfg*
+A server configuration should be placed at <server installation location>/csgo/cfg/server.cfg
 
 If you want to learn more about configuring a CS:GO server check this [documentation](https://developer.valvesoftware.com/wiki/Counter-Strike:_Global_Offensive_Dedicated_Servers#Advanced_Configuration).
