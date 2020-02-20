@@ -19,7 +19,7 @@ RUN set -x \
 		ca-certificates=20190110 \
 	&& mkdir -p ${STEAMAPPDIR}/csgo \
 	&& cd ${STEAMAPPDIR} \
-	&& wget https://raw.githubusercontent.com/oct8l/CSGO-1/master/etc/entry.sh \
+	&& wget https://raw.githubusercontent.com/oct8l/CSGO-1/master/Standard/etc/entry.sh \
 	&& chmod 755 ${STEAMAPPDIR}/entry.sh \
 	&& cd ${STEAMAPPDIR}/csgo \
 	&& { \
